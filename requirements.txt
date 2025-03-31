@@ -1,0 +1,8 @@
+fastapi[all]
+uvicorn
+beanie
+motor
+python-dotenv
+
+
+#python test_db.py
