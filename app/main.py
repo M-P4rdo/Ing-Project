@@ -1,9 +1,11 @@
 from fastapi import FastAPI
 from app.database import init_db
 from app.routers import car
+from app.middleware.logging import LogRequestsMiddleware
 
 app = FastAPI()
 app.include_router(car.router)
+app.add_middleware(LogRequestsMiddleware)
 
 @app.on_event("startup")
 async def startup():
