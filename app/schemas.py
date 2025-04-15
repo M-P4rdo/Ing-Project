@@ -19,3 +19,6 @@ class CarCreate(BaseModel):
         if value and any(char in value for char in [";", "'", "--", "$", "{", "}"]):
             raise ValueError("La descripción contiene caracteres no permitidos.")
         return value
+
+class BrandCreate(BaseModel):
+    name: str = Field(..., max_length=20)

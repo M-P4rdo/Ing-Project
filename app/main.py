@@ -1,11 +1,12 @@
 from fastapi import FastAPI
 from app.database import init_db
-from app.routers import car
+from app.routers import car, brand
 from app.middleware.logging import LogRequestsMiddleware
 from app.exceptions.handlers import register_exception_handlers
 
 app = FastAPI()
 app.include_router(car.router)
+app.include_router(brand.router)
 app.add_middleware(LogRequestsMiddleware)
 register_exception_handlers(app)
 
